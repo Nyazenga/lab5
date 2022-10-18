@@ -35,8 +35,8 @@ void loop() {
   lcd.setCursor(0, 0); // start to print at the first row
   lcd.print("Tank 1 Monitor ");
   lcd.setCursor(0, 1); // start to print at the first row
-  lcd.print("W-Level: ");
+  lcd.print("Level: ");
   lcd.print(distance);
-lcd.print(" cm");
+  //lcd.print("cm");
   delay(500);
 }
