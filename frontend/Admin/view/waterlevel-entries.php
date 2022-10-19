@@ -1,5 +1,5 @@
 <?php
-
+$id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -100,7 +100,7 @@
 
       function ShowAllUsers() {
         $.ajax({
-          url: ["../controller/waterlevel-entries.php"],
+          url: ["../controller/waterlevel-entries.php?id=<?php echo "".$id?>"],
           type: "POST",
           data: {
             action: "view"

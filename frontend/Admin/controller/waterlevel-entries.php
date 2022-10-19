@@ -3,11 +3,10 @@
 require('../model/waterlevel-entries.php');
 
 $db = new Database();
-$id=$_POST['id'];
+$id = $_GET['id'];
 
-if(isset($_POST['action']) && $_POST['action']== "view"){
+if(isset($_POST['action']) && $_POST['action']== "view" ){
     $output = '';
-    
     $data = $db->read($id);
    //  print_r($data);
     if($db->totalRowCount()>0){ 
