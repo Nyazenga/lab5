@@ -25,7 +25,7 @@ void setup() {
 
 void loop() {
   // generate 10-us pulse to TRIG pin
-  digitalWrite(TRIG_PIN, HIGH);
+  digitalWrite(TRIG_PIN, HIGH);S
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
 
@@ -37,14 +37,14 @@ void loop() {
   if (distance <= 15) {
 
     digitalWrite(LED, HIGH);  // turn LED ON
-    digitalWrite(BUZZER, HIGH);  // turn BUZZER
+    digitalWrite(BUZZER, LOW);  // turn BUZZER
     
   } 
 
 if (distance >= 100) {
 
     digitalWrite(LED, LOW);  // turn LED OFF
-    digitalWrite(BUZZER, LOW);  // turn BUZZER OFF
+    digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
   } 
 
 lcd.clear();
