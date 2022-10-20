@@ -25,7 +25,7 @@ void setup() {
 
 void loop() {
   // generate 10-us pulse to TRIG pin
-  digitalWrite(TRIG_PIN, HIGH);S
+  digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
 
