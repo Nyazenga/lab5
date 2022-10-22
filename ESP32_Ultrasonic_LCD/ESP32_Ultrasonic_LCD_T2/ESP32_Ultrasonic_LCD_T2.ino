@@ -55,7 +55,7 @@ if (distance >= 100) {
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
     digitalWrite(MOTOR, LOW);  // turn MOTOR OFF 
-    lcd.backlight();
+    //lcd.backlight();
   } 
 
 lcd.clear();
