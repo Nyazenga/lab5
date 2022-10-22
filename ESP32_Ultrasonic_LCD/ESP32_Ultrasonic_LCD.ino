@@ -25,7 +25,7 @@ const int OWNERID = 1
 const char WIFI_SSID[] = "SIMBARASHE";
 const char WIFI_PASSWORD[] = "01234567";
 
-String HOST_NAME = "http://192.168.137.251";  // change to your PC's IP address
+String HOST_NAME = "http://192.168.137.34";  // change to your PC's IP address
 String PATH_NAME = "/Lab5/lab5/insert_waterlevel.php";
 String queryString = "?TankID=1&LocationID=1&OwnerID=1&WaterLevel=2";
 
@@ -92,7 +92,7 @@ void loop() {
     digitalWrite(GREEN_LED, LOW);
     digitalWrite(BUZZER, LOW);  // turn OFF BUZZER as active low
     digitalWrite(MOTOR, HIGH);  // turn OFF MOTOR
-    lcd.noBacklight();
+    //lcd.noBacklight();
     
   } 
 
@@ -102,7 +102,7 @@ if (distance >= 100) {
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
     digitalWrite(MOTOR, LOW);  // turn MOTOR OFF 
-    lcd.backlight();
+    //lcd.backlight();
   } 
 
 lcd.clear();
@@ -116,7 +116,7 @@ lcd.print(distance);
 
 HTTPClient http;
 
-  String HOST_NAME1 = "http://192.168.137.251";  // change to your PC's IP address
+  String HOST_NAME1 = "http://192.168.137.34";  // change to your PC's IP address
   String PATH_NAME1 = "/Lab5/lab5/insert_waterlevel.php";
   String queryString1 = "?TankID=" + String(TANKID) + "&LocationID" + String(LOCATIONID) + "&OwnerID" + String(OWNERID) + "&WaterLevel" + String(distance);
 
