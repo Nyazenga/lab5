@@ -4,19 +4,22 @@
 $servername= "localhost";
 $username="root";
 $password="";
-$dbname="iotlab3";
+$dbname="iotlab5";
 
 //connect to the data base
 $con = mysqli_connect($servername,$username,$password,$dbname);
 
 //get the parametrs: get
 
-$temperature=$_GET['temperature'];
+$tankid=$_GET['TankID'];
+$locationid=$_GET['LocationID'];
+$ownerid=$_GET['OwnerID'];
+$waterlevel=$_GET['WaterLevel'];
 
 //create querry
-$sql = "INSERT INTO tempdata (temperature) VALUES ('{$temperature}')";
+$sql = "INSERT INTO waterlevel (TankID, LocationID, OwnerID, WaterLevel) VALUES ('{$tankid}','{$locationid}','{$ownerid}','{$waterlevel}')";
 
 if (mysqli_query($con, $sql)) 
-echo "New temperature record created successfully";
+echo "New Water Level record created successfully";
 
 ?>
