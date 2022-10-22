@@ -19,9 +19,9 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);  // I2C address 0x27, 16 column and 2 rows
 
 
 float duration, distance;
-const int TANKID = 1
-const int LOCATIONID = 1
-const int OWNERID = 1
+const int TANKID = 1;
+const int LOCATIONID = 1;
+const int OWNERID = 1;
 const char WIFI_SSID[] = "SIMBARASHE";
 const char WIFI_PASSWORD[] = "01234567";
 
@@ -118,7 +118,7 @@ HTTPClient http;
 
   String HOST_NAME1 = "http://192.168.137.34";  // change to your PC's IP address
   String PATH_NAME1 = "/Lab5/lab5/insert_waterlevel.php";
-  String queryString1 = "?TankID=" + String(TANKID) + "&LocationID" + String(LOCATIONID) + "&OwnerID" + String(OWNERID) + "&WaterLevel" + String(distance);
+  String queryString1 = "?TankID=" + String(TANKID) + "&LocationID=" + String(LOCATIONID) + "&OwnerID=" + String(OWNERID) + "&WaterLevel=" + String(distance);
 
   http.begin(HOST_NAME1 + PATH_NAME1 + queryString1);  //HTTP
   int httpCode = http.GET();
