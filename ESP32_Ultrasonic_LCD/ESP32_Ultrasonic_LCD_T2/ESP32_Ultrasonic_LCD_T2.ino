@@ -45,7 +45,7 @@ void loop() {
     digitalWrite(GREEN_LED, LOW);
     digitalWrite(BUZZER, LOW);  // turn OFF BUZZER as active low
     digitalWrite(MOTOR, HIGH);  // turn OFF MOTOR
-    lcd.noBacklight();
+    //lcd.noBacklight();
     
   } 
 
@@ -60,7 +60,7 @@ if (distance >= 100) {
 
 lcd.clear();
 lcd.setCursor(0, 0);  // start to print at the first row
-lcd.print("Tank 1 Monitor ");
+lcd.print("Tank 2 Monitor ");
 lcd.setCursor(0, 1);  // start to print at character 0, row 2
 lcd.print("Level: ");
 lcd.print(distance);
