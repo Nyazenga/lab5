@@ -73,11 +73,11 @@
                 <div class="inline">Water Level: </div> <div class="inline" id="dbdata"></div>
                 </div>
                 <div class="info1">
-                    <a href="../controller/beds.php?export=excel" class="btn btn-info m-1 float-right">
+                    <a href="http://192.168.137.137/ON" class="btn btn-info m-1 float-right">
                         <i class="fas fa-table fa-lg"></i>&nbsp;&nbsp;Automatic&nbsp;&nbsp;</a>
                 </div>
                 <div class="info">
-                    <a href="#" class="btn btn-info m-1 float-right">
+                    <a href="http://192.168.137.137/OFF" class="btn btn-info m-1 float-right">
                         <i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Manual&nbsp;&nbsp;&nbsp;</a>
                 </div>
             </div>
