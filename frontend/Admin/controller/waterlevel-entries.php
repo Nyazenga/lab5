@@ -88,22 +88,22 @@ if(isset($_POST['info_id'])){
 
 if(isset($_GET['export']) && $_GET['export'] == "excel"){
     header("Content-Type: application/xls");
-    header("Content-Disposition: attachment; filename=users.xls");
+    header("Content-Disposition: attachment; filename=waterlevelentries.xls");
     header("pragma: no-cache");
     header("Expires: 0");
 
     $data = $db->read($id);
     echo '<table border="1">';
-    echo '<tr><th>ID</th><th>Username</th><th>Email</th><th>Phone number</th><th>Credit</th><th>Farms</th>';
+    echo '<tr><th>Water Level ID</th><th>Tank ID</th><th>Location ID</th><th>Owner ID</th><th>Water Level</th><th>Time</th>';
 
     foreach($data as $row){
         echo '<tr>
-        <td>'.$row['id'].'</td>
-        <td>'.$row['username'].'</td>
-        <td>'.$row['email'].'</td>
-        <td>'.$row['phone_number'].'</td>
-        <td>'.$row['credit'].'</td>
-        <td>'.$row['farm'].'</td>
+        <td>'.$row['WaterLevelID'].'</td>
+        <td>'.$row['TankID'].'</td>
+        <td>'.$row['LocationID'].'</td>
+        <td>'.$row['OwnerID'].'</td>
+        <td>'.$row['WaterLevel'].'</td>
+        <td>'.$row['Time'].'</td>
         </tr>';
     }
     echo '</table>';

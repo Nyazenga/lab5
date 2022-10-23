@@ -54,7 +54,7 @@ $id = $_GET['id'];
           <h2>Water Level Entries</h2>
         </div>
         <div class="info1">
-          <a href="../controller/waterlevel-entries.php?export=excel" class="btn btn-success m-1 float-right">
+          <a href="../controller/waterlevel-entries.php?export=excel&id=<?php echo "".$id?>" class="btn btn-success m-1 float-right">
             <i class="fas fa-table fa-lg"></i>&nbsp;&nbsp;Export to Excel</a>
         </div>
       </div>

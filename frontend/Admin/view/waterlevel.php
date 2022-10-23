@@ -10,22 +10,27 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
-        integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <!-- Boxicons CDN Link -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style type="text/css">
-        .inline { 
-            display: inline-block; 
+        body {
+            overflow-y: hidden; /* Hide vertical scrollbar */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .inline {
+            display: inline-block;
             font-size: 25px;
             font-weight: 500;
         }
 
-        .display{
+        .display {
             justify-content: flex-end;
         }
-        .circle{
+
+        .circle {
             border: 1px black;
             width: 250px;
             padding: 2px;
@@ -34,13 +39,30 @@
             box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
         }
 
-        .home-content{
+        .home-content {
             padding: 0 50px;
         }
 
-        .text{
+        .text {
             display: flex;
             justify-content: center;
+        }
+
+        .text2 {
+            font-size: 20px;
+            color:#007bff;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
         }
     </style>
 </head>
@@ -68,38 +90,90 @@
                 <i class='bx bx-menu sidebarBtn'></i>
                 <span class="dashboard" style="color: #007bff;">Dashboard</span>
             </div>
-    </nav>
-
-        <div class="home-content">
-            <div class="display">
-            <div class="circle">
-                    <div  class="text" >Automatic:</div>
+        </nav>
+        <div class="row">
+            <div class="column">
+                <div class="home-content">
                     <div class="">
-                        <a class="btn btn-success m-1 float-right"  onclick="openUrl('http://192.168.137.84/AUTO', 'Hey')">
-                            <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
+                        <div class="info">
+                            <div class="inline">Tank 1: </div>
+                        </div>
+                    </div>
+                    <div class="display">
+                        <div class="circle">
+                            <div class="text">Automatic:</div>
+                            <div class="">
+                                <a class="btn btn-success m-1 float-right" onclick="openUrl('http://192.168.137.84/AUTO', 'Hey')">
+                                    <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+                        </div>
+                        <div class="circle">
+                            <div class="text">Manual:</div>
+
+                            <div class="">
+                                <a class="btn btn-danger m-1 float-right" onclick="openUrl('http://192.168.137.84/OFF', 'Hey')">
+                                    <i class="fa fa-toggle-off"></i>&nbsp;&nbsp;&nbsp;&nbsp;OFF&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+
+                            <div class="">
+                                <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.84/ON', 'Hey')">
+                                    <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="info">
+                            <div class="inline">Water Level: </div>
+                            <div class="inline text2" id="dbdata">Loading...</div>
+                            <div class="inline text2">cm </div>
+                        </div>
                     </div>
                 </div>
-                <div class="circle">
-                    <div  class="text" >Manual:</div>
-                    
-                    <div class="">
-                        <a class="btn btn-danger m-1 float-right"  onclick="openUrl('http://192.168.137.84/OFF', 'Hey')">
-                            <i class="fa fa-toggle-off"></i>&nbsp;&nbsp;&nbsp;&nbsp;OFF&nbsp;&nbsp;&nbsp;</a>
-                    </div>
 
+
+            </div>
+            <div class="column">
+                <div class="home-content">
                     <div class="">
-                        <a class="btn btn-info m-1 float-right"  onclick="openUrl('http://192.168.137.84/ON', 'Hey')">
-                            <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
+                        <div class="info">
+                            <div class="inline">Tank 2: </div>
+                        </div>
+                    </div>
+                    <div class="display">
+                        <div class="circle">
+                            <div class="text">Automatic:</div>
+                            <div class="">
+                                <a class="btn btn-success m-1 float-right" onclick="openUrl('http://192.168.137.240/AUTO', 'Hey')">
+                                    <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+                        </div>
+                        <div class="circle">
+                            <div class="text">Manual:</div>
+
+                            <div class="">
+                                <a class="btn btn-danger m-1 float-right" onclick="openUrl('http://192.168.137.240/OFF', 'Hey')">
+                                    <i class="fa fa-toggle-off"></i>&nbsp;&nbsp;&nbsp;&nbsp;OFF&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+
+                            <div class="">
+                                <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.240/ON', 'Hey')">
+                                    <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="info">
+                            <div class="inline">Water Level: </div>
+                            <div class="inline text2" id="dbdata2">Loading...</div>
+                            <div class="inline text2">cm </div>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
 
-        <div class="">
-                <div class="info">
-                <div class="inline">Water Level: </div> <div class="inline" id="dbdata"></div>
-                </div>
-        </div>
     </section>
 
 
@@ -129,8 +203,12 @@
     </script>
 
     <script type="text/javascript">
-        var intervalId = window.setInterval(function(){
+        var intervalId = window.setInterval(function() {
             updateByAJAX_dbData()
+        }, 1000);
+
+        var intervalId = window.setInterval(function() {
+            updateByAJAX_dbData2()
         }, 1000);
 
         function openUrl(url, title) {
@@ -140,20 +218,29 @@
             var x = window.open(url, title, 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1');
 
             x.blur();
-            setTimeout(function(){
+            setTimeout(function() {
                 x.close();
-            },300);
+            }, 300);
         }
 
 
-        function updateByAJAX_dbData(){
-			const xhttp=new XMLHttpRequest();
-			xhttp.onload=function(){
-				document.getElementById("dbdata").innerText=this.responseText;
-			}
-			xhttp.open("GET", "/Lab5/lab5/frontend/Admin/retrieve.php");
-			xhttp.send();
-		}
+        function updateByAJAX_dbData() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("dbdata").innerText = this.responseText;
+            }
+            xhttp.open("GET", "/Lab5/lab5/frontend/Admin/retrieve.php?id=1");
+            xhttp.send();
+        }
+
+        function updateByAJAX_dbData2() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("dbdata2").innerText = this.responseText;
+            }
+            xhttp.open("GET", "/Lab5/lab5/frontend/Admin/retrieve.php?id=2");
+            xhttp.send();
+        }
     </script>
 
 </body>
