@@ -80,16 +80,12 @@ if(isset($_GET['export']) && $_GET['export'] == "excel"){
 
     $data = $db->read();
     echo '<table border="1">';
-    echo '<tr><th>ID</th><th>User ID</th><th>Farmers</th><th>Email</th><th>Farms</th><th>Tank Name</th>';
+    echo '<tr><th>Tank ID</th><th>Tank Name</th>';
 
     foreach($data as $row){
         echo '<tr>
-        <td>'.$row['id'].'</td>
-        <td>'.$row['user_id'].'</td>
-        <td>'.$row['username'].'</td>
-        <td>'.$row['email'].'</td>
-        <td>'.$row['farm'].'</td>
-        <td>'.$row['tank_name'].'</td>
+        <td>'.$row['TankID'].'</td>
+        <td>'.$row['Tank'].'</td>
         </tr>';
     }
     echo '</table>';

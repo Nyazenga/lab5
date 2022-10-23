@@ -52,8 +52,8 @@
         data-target="#addModal">&nbsp;&nbsp;Add Water Tank&nbsp;&nbsp;</button>
         </div>
         <div class="info">
-          <a href="#" class="btn btn-info float-right">
-            <i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Export to Excel&nbsp;&nbsp;&nbsp;</a>
+          <a href="../controller/tanks.php?export=excel" class="btn btn-info float-right">
+            <i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;&nbsp;Export to Excel&nbsp;&nbsp;&nbsp;</a>
         </div>
       </div>
       <div class="ml-5 mr-5">

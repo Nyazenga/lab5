@@ -15,7 +15,7 @@ class Database
     {
         try {
             $this->conn = new PDO($this->dsn, $this->username, $this->pass);
-            // echo "Succesfully Conected!";
+            // echo "Succesfully Connected!";
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -33,7 +33,7 @@ class Database
     public function read($id)
     {
         $data = array();
-        $sql = "SELECT * FROM waterlevel WHERE TankID=:id";
+        $sql = "SELECT * FROM waterlevel WHERE TankID=:id ORDER BY WaterLevelID DESC LIMIT 5";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,6 @@ class Database
         }
         return $data;
     }
-
 
     public function getUserBiId($id)
     { 
