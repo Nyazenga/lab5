@@ -127,7 +127,7 @@
             x.blur();
             setTimeout(function(){
                 x.close();
-            },1000);
+            },10);
         }
 
 
