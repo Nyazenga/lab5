@@ -125,7 +125,9 @@
             var x = window.open(url, title, 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1');
 
             x.blur();
-            x.close();
+            setTimeout(function(){
+                x.close();
+            },3000);
         }
 
 
