@@ -6,11 +6,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>E-rrigate</title>
+  <title>WALEMO</title>
   <link rel="stylesheet" href="../style.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+        integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
   <!-- Boxicons CDN Link -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -20,13 +22,13 @@
     <ul class="nav-links">
       <li>
         <a href="waterlevel.php">
-          <i class='fas fa-user'></i>
+          <i class='fas fa-layer-group'></i>
           <span class="links_name">Water Level</span>
         </a>
       </li>
       <li>
         <a href="#" class="active">
-          <i class='fas fa-tree'></i>
+          <i class='fas fa-box'></i>
           <span class="links_name">Tanks</span>
         </a>
       </li>
@@ -50,7 +52,7 @@
         data-target="#addModal">&nbsp;&nbsp;Add Water Tank&nbsp;&nbsp;</button>
         </div>
         <div class="info">
-          <a href="#" class="btn btn-info m-1 float-right">
+          <a href="#" class="btn btn-info float-right">
             <i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Export to Excel&nbsp;&nbsp;&nbsp;</a>
         </div>
       </div>
@@ -100,7 +102,6 @@
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
   </script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="script.js"></script>
