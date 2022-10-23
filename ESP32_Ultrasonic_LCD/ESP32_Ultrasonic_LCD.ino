@@ -37,7 +37,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);  // I2C address 0x27, 16 column and 2 rows
 WebServer server(80);
 
 
-void systm(){
+void systm() {
+  delay(1000);  //record data every second
   //RUN SERVER
   server.handleClient();
   delay(2);  //allow the cpu to switch to other tasks
@@ -58,8 +59,6 @@ void systm(){
   lcd.print("Level: ");
   lcd.print(distance);
   //lcd.print("cm");
-
- 
 
   //CONFIGURE DATABASE STORAGE
   HTTPClient http;
@@ -85,56 +84,71 @@ void systm(){
   }
 
   http.end();
-  delay(1000);  
 }
 
 
 void handleRoot() {
-  while(1){
-systm();
- //CONFIGURE DEFAULT AUTOMATIC SYSTEM
-  if (distance <= 15) {            //minimum water level 15cm
-    digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
-    digitalWrite(GREEN_LED, LOW);  //normal operation
-    digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
-    digitalWrite(MOTOR, HIGH);     // turn OFF MOTOR
-    //digitalWrite(led, HIGH);    // turn OFF MOTOR
-    digitalWrite(led, 1);
-  }
+  while (1) {
+    systm();
+    //CONFIGURE DEFAULT AUTOMATIC SYSTEM
+    if (distance <= 15) {            //minimum water level 15cm
+      digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
+      digitalWrite(GREEN_LED, LOW);  //normal operation
+      digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
+      digitalWrite(MOTOR, HIGH);     // turn OFF MOTOR
+      //digitalWrite(led, HIGH);    // turn OFF MOTOR
+      digitalWrite(led, 1);
+    }
 
-  if (distance >= 100) {
-    digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
-    digitalWrite(GREEN_LED, HIGH);
-    digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
-    digitalWrite(MOTOR, LOW);    // turn MOTOR OFF
-    digitalWrite(led, 0);    // turn OFF MOTOR
+    if (distance >= 100) {
+      digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
+      digitalWrite(GREEN_LED, HIGH);
+      digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
+      digitalWrite(MOTOR, LOW);    // turn MOTOR OFF
+      digitalWrite(led, 0);        // turn OFF MOTOR
+    }
+    server.send(200, "text/plain", "SYSTEM ON AUTO");
   }
-  server.send(200, "text/plain", "SYSTEM ON AUTO");
-}
 }
 
 void handleRoot2() {
-    while(1){
+  while (1) {
     systm();
-    digitalWrite(MOTOR, HIGH);     // turn OFF MOTOR
+    digitalWrite(MOTOR, HIGH);  // turn OFF MOTOR
     digitalWrite(led, HIGH);    // turn OFF MOTOR
-  server.send(200, "text/plain", "MOTOR IS ON");
-}
+    server.send(200, "text/plain", "MOTOR IS ON");
+    if (distance <= 15) {            //minimum water level 15cm
+      digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
+      digitalWrite(GREEN_LED, LOW);  //normal operation
+      digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
+    }
+
+    if (distance >= 100) {
+      digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
+      digitalWrite(GREEN_LED, HIGH);
+      digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
+    }
+  }
 }
 void handleRoot3() {
-  while(1){
+  while (1) {
     systm();
-    digitalWrite(MOTOR, HIGH);     // turn OFF MOTOR
-    digitalWrite(led, 0);    // turn OFF MOTOR
+    digitalWrite(MOTOR, LOW);        // turn OFF MOTOR
+    digitalWrite(led, 0);            // turn OFF MOTOR
+    if (distance <= 15) {            //minimum water level 15cm
+      digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
+      digitalWrite(GREEN_LED, LOW);  //normal operation
+      digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
+    }
+
+    if (distance >= 100) {
+      digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
+      digitalWrite(GREEN_LED, HIGH);
+      digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
+    }
     server.send(200, "text/plain", "MOTOR IS ON");
-      //delay(500);
-    //digitalWrite(RED_LED, 0);
-  
+  }
 }
-}
-
-
-
 
 void setup() {
   Serial.begin(115200);
@@ -172,7 +186,7 @@ void setup() {
   server.on("/AUTO", handleRoot);
   server.on("/ON", handleRoot2);
   server.on("/OFF", handleRoot3);
-   server.begin();
+  server.begin();
   Serial.println("HTTP server started");
 
   //configuring HTTP
@@ -200,13 +214,13 @@ void setup() {
 
 void loop() {
   systm();
-   //CONFIGURE DEFAULT AUTOMATIC SYSTEM
+  //CONFIGURE DEFAULT AUTOMATIC SYSTEM
   if (distance <= 15) {            //minimum water level 15cm
     digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
     digitalWrite(GREEN_LED, LOW);  //normal operation
     digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
-    digitalWrite(MOTOR, HIGH);     // turn OFF MOTOR
-    //digitalWrite(led, HIGH);    // turn OFF MOTOR
+    digitalWrite(MOTOR, HIGH);     // turn ON MOTOR
+    digitalWrite(led, HIGH);       // turn ON MOTOR LED
   }
 
   if (distance >= 100) {
@@ -214,7 +228,6 @@ void loop() {
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
     digitalWrite(MOTOR, LOW);    // turn MOTOR OFF
-    //digitalWrite(led, LOW);    // turn OFF MOTOR
+    digitalWrite(led, LOW);      // turn MOTOR LED OFF
   }
-
 }
