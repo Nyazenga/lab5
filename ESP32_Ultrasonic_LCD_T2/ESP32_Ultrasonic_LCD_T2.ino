@@ -32,15 +32,15 @@ String queryString = "?TankID=1&LocationID=1&OwnerID=1&WaterLevel=2";
 
 void setup() {
   Serial.begin(115200);
-  
+
   lcd.init();                 // initialize the lcd
   lcd.backlight();            // open the backlight
   pinMode(TRIG_PIN, OUTPUT);  // config trigger pin to output mode
   pinMode(ECHO_PIN, INPUT);   // config echo pin to input mode
-  pinMode(RED_LED, OUTPUT);  
-   pinMode(GREEN_LED, OUTPUT); 
+  pinMode(RED_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
   pinMode(BUZZER, OUTPUT);
-  pinMode(MOTOR, OUTPUT); 
+  pinMode(MOTOR, OUTPUT);
 
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.println("Connecting");
@@ -48,7 +48,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  
+
   Serial.println("");
   Serial.print("Connected to WiFi network with IP Address: ");
   Serial.println(WiFi.localIP());
@@ -72,7 +72,7 @@ void setup() {
     Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
   }
 
-  http.end();      
+  http.end();
 }
 
 void loop() {
@@ -92,32 +92,29 @@ void loop() {
     digitalWrite(GREEN_LED, LOW);
     digitalWrite(BUZZER, LOW);  // turn OFF BUZZER as active low
     digitalWrite(MOTOR, HIGH);  // turn OFF MOTOR
-   
-    
-  } 
+  }
 
-if (distance >= 100) {
+  if (distance >= 100) {
 
     digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
-    digitalWrite(MOTOR, LOW);  // turn MOTOR OFF 
-   
-  } 
+    digitalWrite(MOTOR, LOW);    // turn MOTOR OFF
+  }
 
-lcd.clear();
-lcd.setCursor(0, 0);  // start to print at the first row
-lcd.print("Tank 2 Monitor ");
-lcd.setCursor(0, 1);  // start to print at character 0, row 2
-lcd.print("Level: ");
-lcd.print(distance);
-//lcd.print("cm");
+  lcd.clear();
+  lcd.setCursor(0, 0);  // start to print at the first row
+  lcd.print("Tank 2 Monitor ");
+  lcd.setCursor(0, 1);  // start to print at character 0, row 2
+  lcd.print("Level: ");
+  lcd.print(distance);
+  //lcd.print("cm");
 
 
-HTTPClient http;
+  HTTPClient http;
 
-  String HOST_NAME1 = "http://192.168.137.34";  // change to your PC's IP address
-  String PATH_NAME1 = "/Lab5/lab5/insert_waterlevel.php";//folder
+  String HOST_NAME1 = "http://192.168.137.34";             // change to your PC's IP address
+  String PATH_NAME1 = "/Lab5/lab5/insert_waterlevel.php";  //folder
   String queryString1 = "?TankID=" + String(TANKID) + "&LocationID=" + String(LOCATIONID) + "&OwnerID=" + String(OWNERID) + "&WaterLevel=" + String(distance);
 
   http.begin(HOST_NAME1 + PATH_NAME1 + queryString1);  //HTTP
