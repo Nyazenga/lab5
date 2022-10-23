@@ -40,13 +40,11 @@ WebServer server(80);
 void handleRoot() {
   digitalWrite(led, 1);
   server.send(200, "text/plain", "LED IS ON");
-  
 }
 
 void handleRoot2() {
   digitalWrite(led, 0);
   server.send(200, "text/plain", "LED IS OFF");
-  
 }
 
 
@@ -77,7 +75,6 @@ void setup() {
 
   Serial.println("");
   Serial.print("Connected to ");
-  Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
@@ -87,6 +84,7 @@ void setup() {
 
   server.on("/ON", handleRoot);
   server.on("/OFF", handleRoot2);
+   server.begin();
   Serial.println("HTTP server started");
 
   //configuring HTTP
@@ -125,7 +123,7 @@ void loop() {
   // calculate the distance
   distance = 0.03463 / 2 * duration;  //speed of sound at 30 celcious around is 346.3m/s
 
-//CONFIGURE SYSTEM DISPLAY
+  //CONFIGURE SYSTEM DISPLAY
   lcd.clear();
   lcd.setCursor(0, 0);  // start to print at the first row
   lcd.print("Tank 1 Monitor ");
@@ -136,11 +134,11 @@ void loop() {
 
   //CONFIGURE DEFAULT AUTOMATIC SYSTEM
   if (distance <= 15) {            //minimum water level 15cm
-    digitalWrite(RED_LED, HIGH);  // turn RED RED_RED_LED ON
-    digitalWrite(GREEN_LED, LOW); //normal operation
-    digitalWrite(BUZZER, LOW);  // turn OFF BUZZER as active low
-    digitalWrite(MOTOR, HIGH);  // turn OFF MOTOR
-    digitalWrite(led, HIGH);    // turn OFF MOTOR
+    digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
+    digitalWrite(GREEN_LED, LOW);  //normal operation
+    digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
+    digitalWrite(MOTOR, HIGH);     // turn OFF MOTOR
+    //digitalWrite(led, HIGH);    // turn OFF MOTOR
   }
 
   if (distance >= 100) {
@@ -148,9 +146,10 @@ void loop() {
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
     digitalWrite(MOTOR, LOW);    // turn MOTOR OFF
+                                 //digitalWrite(led, LOW);    // turn OFF MOTOR
   }
 
-//CONFIGURE DATABASE STORAGE
+  //CONFIGURE DATABASE STORAGE
   HTTPClient http;
   String HOST_NAME1 = "http://192.168.137.34";  // change to your PC's IP address
   String PATH_NAME1 = "/Lab5/lab5/insert_waterlevel.php";
