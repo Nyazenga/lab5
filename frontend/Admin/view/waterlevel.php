@@ -16,26 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style type="text/css">
-        .cnnclass {
-            border: 1px solid black;
-            width: 350px;
-            padding: 2px;
-            background-color: #F3F3F3;
-            margin-bottom: 1em;
-        }
-
-        .cnnclass a {
-            text-decoration: none;
-        }
-
-        .newsclass {
-            border: 1px solid orange;
-            padding: 3px;
-            background-color: lightyellow;
-            margin-bottom: 1em;
-            width: 350px;
-        }
-
         .inline { 
             display: inline-block; 
             font-size: 25px;
@@ -46,11 +26,12 @@
             justify-content: flex-end;
         }
         .circle{
-            border: 1px solid black;
+            border: 1px black;
             width: 250px;
             padding: 2px;
-            background-color: lightyellow;
-            margin-bottom: 1em;
+            background-color: #fff;
+            margin-right: 2em;
+            box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
         }
 
         .home-content{
