@@ -92,7 +92,7 @@ void loop() {
     digitalWrite(GREEN_LED, LOW);
     digitalWrite(BUZZER, LOW);  // turn OFF BUZZER as active low
     digitalWrite(MOTOR, HIGH);  // turn OFF MOTOR
-    //lcd.noBacklight();
+    
     
   } 
 
@@ -102,7 +102,7 @@ if (distance >= 100) {
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
     digitalWrite(MOTOR, LOW);  // turn MOTOR OFF 
-    //lcd.backlight();
+    
   } 
 
 lcd.clear();
