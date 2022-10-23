@@ -73,12 +73,12 @@
                 <div class="inline">Water Level: </div> <div class="inline" id="dbdata"></div>
                 </div>
                 <div class="info1">
-                    <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.137/ON', 'Hi')">
+                    <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.84/ON', 'Hi')">
                         <i class="fas fa-table fa-lg"></i>&nbsp;&nbsp;Automatic&nbsp;&nbsp;
                     </a>
                 </div>
                 <div class="info">
-                    <a href="http://192.168.137.137/OFF" class="btn btn-info m-1 float-right">
+                    <a class="btn btn-info m-1 float-right"  onclick="openUrl('http://192.168.137.84/OFF', 'Hey')">
                         <i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Manual&nbsp;&nbsp;&nbsp;</a>
                 </div>
             </div>
