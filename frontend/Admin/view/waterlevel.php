@@ -75,7 +75,7 @@
             <div class="circle">
                     <div  class="text" >Automatic:</div>
                     <div class="">
-                        <a class="btn btn-success m-1 float-right"  onclick="openUrl('http://192.168.137.84/OFF', 'Hey')">
+                        <a class="btn btn-success m-1 float-right"  onclick="openUrl('http://192.168.137.84/AUTO', 'Hey')">
                             <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="">
-                        <a class="btn btn-info m-1 float-right"  onclick="openUrl('http://192.168.137.84/OFF', 'Hey')">
+                        <a class="btn btn-info m-1 float-right"  onclick="openUrl('http://192.168.137.84/ON', 'Hey')">
                             <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
                     </div>
                 </div>
