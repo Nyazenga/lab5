@@ -73,8 +73,9 @@
                 <div class="inline">Water Level: </div> <div class="inline" id="dbdata"></div>
                 </div>
                 <div class="info1">
-                    <a href="http://192.168.137.137/ON" class="btn btn-info m-1 float-right">
-                        <i class="fas fa-table fa-lg"></i>&nbsp;&nbsp;Automatic&nbsp;&nbsp;</a>
+                    <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.137/ON', 'Hi')">
+                        <i class="fas fa-table fa-lg"></i>&nbsp;&nbsp;Automatic&nbsp;&nbsp;
+                    </a>
                 </div>
                 <div class="info">
                     <a href="http://192.168.137.137/OFF" class="btn btn-info m-1 float-right">
@@ -116,6 +117,17 @@
         var intervalId = window.setInterval(function(){
             updateByAJAX_dbData()
         }, 1000);
+
+        function openUrl(url, title) {
+            if (!title) {
+                title = 'Just another window';
+            }
+            var x = window.open(url, title, 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1');
+
+            x.blur();
+            x.close();
+        }
+
 
         function updateByAJAX_dbData(){
 			const xhttp=new XMLHttpRequest();
