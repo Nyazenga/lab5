@@ -215,14 +215,14 @@ void setup() {
 void loop() {
   systm();
   //CONFIGURE DEFAULT AUTOMATIC SYSTEM
-  if (distance <= 15) {            //minimum water level 15cm
+  if (distance <= 30) {            //minimum water level 15cm
     digitalWrite(RED_LED, HIGH);   // turn RED RED_RED_LED ON
     digitalWrite(GREEN_LED, LOW);  //normal operation
     digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
     digitalWrite(MOTOR, HIGH);     // turn ON MOTOR
     digitalWrite(led, HIGH);       // turn ON MOTOR LED
   }
-
+  //the tank is 120cm height
   if (distance >= 100) {
     digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
     digitalWrite(GREEN_LED, HIGH);
