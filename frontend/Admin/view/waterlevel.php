@@ -97,13 +97,14 @@
                     <div class="">
                         <div class="info">
                             <div class="inline">Tank 1: </div>
+                            <div class="text2" id="mode">Mode - AUTO: ON</div>
                         </div>
                     </div>
                     <div class="display">
                         <div class="circle">
                             <div class="text">Automatic:</div>
                             <div class="">
-                                <a class="btn btn-success m-1 float-right" onclick="openUrl('http://192.168.137.84/AUTO', 'Hey')">
+                                <a class="btn btn-success m-1 float-right" onclick="openUrl('http://192.168.137.84/AUTO', 'Mode - AUTO: ON')">
                                     <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </div>
@@ -111,12 +112,12 @@
                             <div class="text">Manual:</div>
 
                             <div class="">
-                                <a class="btn btn-danger m-1 float-right" onclick="openUrl('http://192.168.137.84/OFF', 'Hey')">
+                                <a class="btn btn-danger m-1 float-right" onclick="openUrl('http://192.168.137.84/OFF', 'Mode - AUTO: ON')">
                                     <i class="fa fa-toggle-off"></i>&nbsp;&nbsp;&nbsp;&nbsp;OFF&nbsp;&nbsp;&nbsp;</a>
                             </div>
 
                             <div class="">
-                                <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.84/ON', 'Hey')">
+                                <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.84/ON', 'Mode - MANUAL: ON')">
                                     <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </div>
@@ -137,13 +138,14 @@
                     <div class="">
                         <div class="info">
                             <div class="inline">Tank 2: </div>
+                            <div class="text2" id="mode2">Mode - AUTO: ON</div>
                         </div>
                     </div>
                     <div class="display">
-                        <div class="circle">
+                    <div class="circle">
                             <div class="text">Automatic:</div>
                             <div class="">
-                                <a class="btn btn-success m-1 float-right" onclick="openUrl('http://192.168.137.240/AUTO', 'Hey')">
+                                <a class="btn btn-success m-1 float-right" onclick="openUrl2('http://192.168.137.240/AUTO', 'Mode - AUTO: ON')">
                                     <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </div>
@@ -151,12 +153,12 @@
                             <div class="text">Manual:</div>
 
                             <div class="">
-                                <a class="btn btn-danger m-1 float-right" onclick="openUrl('http://192.168.137.240/OFF', 'Hey')">
+                                <a class="btn btn-danger m-1 float-right" onclick="openUrl2('http://192.168.137.240/OFF', 'Mode - AUTO: ON')">
                                     <i class="fa fa-toggle-off"></i>&nbsp;&nbsp;&nbsp;&nbsp;OFF&nbsp;&nbsp;&nbsp;</a>
                             </div>
 
                             <div class="">
-                                <a class="btn btn-info m-1 float-right" onclick="openUrl('http://192.168.137.240/ON', 'Hey')">
+                                <a class="btn btn-info m-1 float-right" onclick="openUrl2('http://192.168.137.240/ON', 'Mode - MANUAL: ON')">
                                     <i class="fa fa-toggle-on"></i>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </div>
@@ -205,22 +207,38 @@
     <script type="text/javascript">
         var intervalId = window.setInterval(function() {
             updateByAJAX_dbData()
-        }, 1000);
+        }, 100);
 
         var intervalId = window.setInterval(function() {
             updateByAJAX_dbData2()
-        }, 1000);
+        }, 100);
 
-        function openUrl(url, title) {
-            if (!title) {
-                title = 'Just another window';
+        function openUrl(url, mode) {
+            if (!mode) {
+                title = 'WALEMO';
+                
             }
-            var x = window.open(url, title, 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1');
-
+            document.getElementById("mode").innerText = mode;
+            var x = window.open(url, mode, 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1');
             x.blur();
             setTimeout(function() {
                 x.close();
             }, 300);
+
+        }
+
+        function openUrl2(url, mode) {
+            if (!mode) {
+                title = 'WALEMO';
+                
+            }
+            document.getElementById("mode2").innerText = mode;
+            var x = window.open(url, mode, 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1');
+            x.blur();
+            setTimeout(function() {
+                x.close();
+            }, 300);
+
         }
 
 
