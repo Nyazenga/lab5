@@ -15,9 +15,9 @@ RED_LED CONFIGURED
 #define TRIG_PIN 5   // ESP32 pin GIOP5 connected to Ultrasonic Sensor's TRIG pin
 #define ECHO_PIN 18  // ESP32 pin GIOP18 connected to Ultrasonic Sensor's ECHO pin
 #define RED_LED 33
-#define GREEN_LED 26
+#define GREEN_LED 34
 #define BUZZER 32
-#define MOTOR 25
+#define MOTOR 35
 
 const int led = 2;
 
