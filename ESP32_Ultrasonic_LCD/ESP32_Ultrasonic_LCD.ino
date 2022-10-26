@@ -15,9 +15,9 @@ RED_LED CONFIGURED
 #define TRIG_PIN 5   // ESP32 pin GIOP5 connected to Ultrasonic Sensor's TRIG pin
 #define ECHO_PIN 18  // ESP32 pin GIOP18 connected to Ultrasonic Sensor's ECHO pin
 #define RED_LED 33
-#define GREEN_LED 34
+#define GREEN_LED 19
 #define BUZZER 32
-#define MOTOR 35
+#define MOTOR 23
 
 const int led = 2;
 
@@ -38,7 +38,7 @@ WebServer server(80);
 
 
 void systm() {
-  delay(1000);  //record data every second
+  delay(10);  //record data every second
   //RUN SERVER
   server.handleClient();
   delay(2);  //allow the cpu to switch to other tasks
