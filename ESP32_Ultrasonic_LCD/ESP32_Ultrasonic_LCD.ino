@@ -38,7 +38,7 @@ WebServer server(80);
 
 
 void systm() {
-  delay(10);  //record data every second
+  delay(500);  //record data every second
   //RUN SERVER
   server.handleClient();
   delay(2);  //allow the cpu to switch to other tasks

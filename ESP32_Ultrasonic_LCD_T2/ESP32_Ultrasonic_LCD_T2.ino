@@ -123,7 +123,7 @@ void handleRoot2() {
       digitalWrite(BUZZER, LOW);     // turn OFF BUZZER as active low
     }
 
-    if (distance >= 100) {
+    if (distance >= 80) {
       digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
       digitalWrite(GREEN_LED, HIGH);
       digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
@@ -223,7 +223,7 @@ void loop() {
     digitalWrite(led, HIGH);       // turn ON MOTOR LED
   }
 
-  if (distance >= 100) {
+  if (distance >= 80) {
     digitalWrite(RED_LED, LOW);  // turn RED_LED OFF
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(BUZZER, HIGH);  // turn BUZZER OFF
